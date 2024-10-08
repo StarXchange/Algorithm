@@ -1,0 +1,81 @@
+// ALGORITHM three_nb_add
+// VAR
+//     num1, num2, num3: INTEGER;
+//     SUM: INTEGER=0;
+// BEGIN
+//     READ num1, num2, num3;
+//     sum := num1 + num2 + num3;
+//     WRITE sum;
+// END
+
+// the problem:passing a number of characters in a STRING
+// gather the constraints which are to be passed in strings  and how it will be counted
+// gather the inputs that will be used in the strings
+// export result: that is the sum of the inputs in the string which will lead to the result
+// lastly, print out the result
+
+// algorithm to read sentence, so we can find the length
+// first step is to create a container to hold character count 
+// sencond step is to read the sentence into your sentence container
+// third step is to read each character and add one to your character count container 
+// last step is to print character count 
+
+
+// counting the number of words in a sentence
+// create a container to hold the sentence
+// read into it 
+// create a container to word count 
+// read sentence character by character when single space is reach
+
+//vowels count
+//create a container to hold the sentence
+// read into it
+// create a container to word count
+// read sentence character by character when single space is reach
+// create a container to hold the vowels
+// read into it
+// create a container to word count
+// read sentence character by character when single space is reach
+// print out the word count
+// print out the vowel count
+// 
+BEGIN
+    length = 0
+    word_count = 0
+    vowel_count = 0
+    in_word = False
+
+    PRINT "Enter a sentence ending with a point:"
+    
+    WHILE True DO
+        char = READ next character
+        IF char == '.' THEN
+            BREAK
+        ENDIF
+        
+        length = length + 1
+        
+        IF char IN ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'] THEN
+            vowel_count = vowel_count + 1
+        ENDIF
+        
+        IF char == ' ' THEN
+            IF in_word THEN
+                in_word = False
+            ENDIF
+        ELSE
+            IF NOT in_word THEN
+                word_count = word_count + 1
+                in_word = True
+            ENDIF
+        ENDIF
+    ENDWHILE
+
+    IF in_word THEN
+        word_count = word_count + 1
+    ENDIF
+
+    PRINT "Length of the sentence:", length
+    PRINT "Number of words:", word_count
+    PRINT "Number of vowels:", vowel_count
+END
